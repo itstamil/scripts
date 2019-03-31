@@ -8,7 +8,7 @@ Steps to run the scripts are
 2)cd scrpits	
 
 
-3)chmod 777 <file_need_to_be_runned>	
+3)chmod +x <file_need_to_be_runned>	
 
 
 4)sudo ./<file_need_to_be_runned>	
