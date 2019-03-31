@@ -5,13 +5,13 @@ if [ -z "$1" ]
     echo "Missing Interface "
     echo "Run Script With ./check_avail_iface.sh <iface_need_to_be_checked>"
 else
-        cat /sys/class/net/enp1s0/operstate
+        cat /sys/class/net/$1/operstate
         STATUS=$?
 if [ $STATUS -eq 1 ];
 then
-echo "not"
+echo "The Interface " $1 " is not Available "
 else
-echo "find"
+echo "The Interface " $1 " is Available "
 fi
 
 fi
