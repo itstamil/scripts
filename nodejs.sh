@@ -16,7 +16,6 @@ install(){
     curl -sL https://deb.nodesource.com/setup_$version.x | sudo -E bash -
     sudo apt-get update 
     sudo apt-get install -y nodejs
-    sudo apt install npm
 
 }
 
@@ -25,7 +24,6 @@ if which node > /dev/null
     then
         echo " Removing old binaries "
         sudo apt remove -y nodejs
-        sudo apt remove -y npm
         sudo apt autoremove -y
         rm -rf /etc/apt/sources.list.d/nodesource.list
         echo "Installation Begins For Nodejs v$version"
