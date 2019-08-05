@@ -8,9 +8,29 @@ echo "For V8 Enter 8"
 echo "For V9 Enter 9"
 echo "For V10 Enter 10"
 echo "For V11 Enter 11"
-echo "Enter your choice "
-read version
-echo "Installation Begins For Nodejs v8"
-curl -sL https://deb.nodesource.com/setup_$version.x | sudo -E bash -
-sudo apt-get update 
-sudo apt-get install -y nodejs
+echo "Enter your choice : "
+read version 
+
+
+install(){
+    curl -sL https://deb.nodesource.com/setup_$version.x | sudo -E bash -
+    sudo apt-get update 
+    sudo apt-get install -y nodejs
+    sudo apt install npm
+
+}
+
+
+if which node > /dev/null
+    then
+        echo " Removing old binaries "
+        sudo apt remove -y nodejs
+        sudo apt remove -y npm
+        sudo apt autoremove -y
+        rm -rf /etc/apt/sources.list.d/nodesource.list
+        echo "Installation Begins For Nodejs v$version"
+        install
+    else
+        echo "Installation Begins For Nodejs v$version"
+        install
+fi
