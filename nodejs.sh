@@ -14,6 +14,7 @@ read version
 
 
 install(){
+    sudo apt install -y curl 
     curl -sL https://deb.nodesource.com/setup_$version.x | sudo -E bash -
     sudo apt-get update 
     sudo apt-get install -y nodejs
